@@ -1,7 +1,11 @@
 #define _CRT_SECURE_NO_WARNINGS
 #define STEAM_API_EXPORTS
 
+#ifdef WIN32
+#define S_API extern "C" __declspec (dllexport)
+#else
 #define S_API extern "C" __attribute__ ((visibility("default"))) 
+#endif
 #define NULL 0
 
 S_API void *g_pSteamClientGameServer;
